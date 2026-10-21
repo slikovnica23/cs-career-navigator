@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b1423" />
+    <meta name="description" content="计算机就业与申博导航：管理资源、行动计划、申请节点、目标对比和材料清单。数据保存在当前浏览器。" />
+    <title>CS Navigator｜计算机就业与申博导航</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./data.js" defer></script>
+    <script src="./mainland-universities.js" defer></script>
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#" data-view-link="overview" aria-label="返回总览">
+        <span class="brand-mark" aria-hidden="true">CS</span>
+        <span class="brand-name">计算机就业与申博导航</span>
+      </a>
+      <button class="icon-button menu-toggle" id="menu-toggle" type="button" aria-label="打开导航" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
+      </button>
+      <div class="global-search-wrap">
+        <label class="global-search" for="global-search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8" /><path d="m16 16 4.5 4.5" /></svg>
+          <input id="global-search" type="search" autocomplete="off" placeholder="全站搜索资源、任务、申请与材料" aria-label="全站搜索" />
+          <kbd>Ctrl K</kbd>
+        </label>
+        <div class="search-results hidden" id="search-results" role="listbox" aria-label="搜索结果"></div>
+      </div>
+      <div class="top-actions">
+        <button class="btn subtle" id="export-quick" type="button">导出备份</button>
+        <button class="icon-button" id="print-quick" type="button" aria-label="打印当前页面" title="打印当前页面">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 8V3h10v5M7 17H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2M7 14h10v7H7z" /><path d="M17.5 11.5h.01" /></svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <nav class="main-nav" aria-label="主导航">
+          <p class="nav-label">工作台</p>
+          <button class="nav-item active" type="button" data-view="overview"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z" /></svg><span>总览</span></button>
+          <button class="nav-item" type="button" data-view="resources"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM7 7h10M7 11h10M7 15h7" /></svg><span>资源库</span></button>
+          <button class="nav-item" type="button" data-view="roadmap"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2" /><circle cx="18" cy="19" r="2" /><circle cx="18" cy="5" r="2" /><path d="M6 7v4a3 3 0 0 0 3 3h3a3 3 0 0 1 3 3v0M18 7v2a3 3 0 0 1-3 3h-1" /></svg><span>行动路线</span></button>
+          <button class="nav-item" type="button" data-view="applications"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2" /><path d="M8 2v4m8-4v4M3 9h18M7 13h4m-4 4h7" /></svg><span>申请看板</span></button>
+          <button class="nav-item" type="button" data-view="calendar"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2" /><path d="M8 2v4m8-4v4M3 9h18m-13 4h2m4 0h2m-8 4h2m4 0h2" /></svg><span>截止日历</span></button>
+          <button class="nav-item" type="button" data-view="plans"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2" /><path d="M8 8h8M8 12h8M8 16h5" /></svg><span>自定义计划</span></button>
+          <button class="nav-item" type="button" data-view="compare"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 3v18M3 12h18M6 6l12 12" /></svg><span>目标对比</span></button>
+          <button class="nav-item" type="button" data-view="materials"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM14 3v5h5M8 12h8M8 16h6" /></svg><span>材料清单</span></button>
+          <p class="nav-label nav-label-spaced">个人工具</p>
+          <button class="nav-item" type="button" data-view="templates"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM7 7h10M7 11h10M7 15h6" /></svg><span>模板与备份</span></button>
+        </nav>
+        <div class="sidebar-foot">
+          <span class="storage-dot" aria-hidden="true"></span>
+          <span id="storage-msg">数据保存在当前浏览器</span>
+        </div>
+      </aside>
+
+      <main class="main-content" id="main-content" tabindex="-1"></main>
+    </div>
+
+    <input id="import-file" type="file" accept="application/json,.json" hidden />
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

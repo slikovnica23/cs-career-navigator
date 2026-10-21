@@ -1,0 +1,4 @@
+qa/
+_site/
+*.log
+.DS_Store
